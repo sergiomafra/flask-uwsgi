@@ -1,10 +1,10 @@
 [Unit]
-Description = uWSGI service for <app_name> application
+Description = uWSGI service for <APP_NAME> application
 After = syslog.target
 
 
 [Service]
-ExecStart = <abs_path_to_virtualenv_folder>/bin/uwsgi --ini <abs_path_to_uwsgi_ini_file> --enable-threads
+ExecStart = <VIRTUALENV_PATH>/bin/uwsgi --ini <APP_PATH>/etc/uwsgi/<APP_NAME>.ini --enable-threads
 RuntimeDirectory = uwsgi
 Restart = always
 KillSignal = SIGQUIT
