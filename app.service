@@ -1,0 +1,17 @@
+[Unit]
+Description = uWSGI service for <app_name> application
+After = syslog.target
+
+
+[Service]
+ExecStart = <abs_path_to_virtualenv_folder>/bin/uwsgi --ini <abs_path_to_uwsgi_ini_file> --enable-threads
+RuntimeDirectory = uwsgi
+Restart = always
+KillSignal = SIGQUIT
+Type = notify
+StandardError = syslog
+NotifyAccess = all
+
+
+[Install]
+WantedBy = multi-user.target
