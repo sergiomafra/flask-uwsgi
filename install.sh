@@ -33,6 +33,6 @@ echo " ... Done!"
 ## Configure virtual env installing dependencies
 
 ## TODO
-## 1) Reload NGINX conf
-## 2) Start uWSGI app service
-## 3) Make sure service will start on server start
+## 1) Reload NGINX conf - sudo nginx -s reload
+## 2) Start uWSGI app service - sudo systemctl start ${APP_NAME}.service
+## 3) Make sure service will start on server start - sudo systemctl enable ${APP_NAME}.service
