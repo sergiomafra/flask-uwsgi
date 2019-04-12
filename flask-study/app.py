@@ -1,6 +1,7 @@
 from flask import Flask
 
 app = Flask(__name__)
+app.debug = True
 
 ## Hello World
 @app.route('/')
@@ -16,6 +17,11 @@ def info():
 @app.route('/puppy/<name>')
 def puppy(name):
     return f'<h1>This is a page for {name.upper()}</h1>'
+
+## Example of DEBUG - Return 100th letter of the name
+@app.route('/100/<name>')
+def r100(__name__):
+    return f'<h1>This is the 100th letter: {name[100]}</h1>'
 
 if __name__ == '__main__':
     app.run()
