@@ -6,7 +6,8 @@ app.debug = True
 ## Hello World
 @app.route('/')
 def index():
-    return '<h1>Hello Puppy!</h1>'
+    return ('<h1>Hello Puppy!</h1><br /><h2>Move to /puppy-latin/<name> to see '
+            'your name in latin</h2>')
 
 ## Creating another unique route
 @app.route('/information')
@@ -22,6 +23,14 @@ def puppy(name):
 @app.route('/100/<name>')
 def r100(__name__):
     return f'<h1>This is the 100th letter: {name[100]}</h1>'
+
+## Exercise 01 - Puppy Latin
+@app.route('/puppy-latin/<name>')
+def puppy_latin(name):
+    if name[-1] != 'y':
+        return f'<h1>Your latin puppy name is {name}y.</h1>'
+    else:
+        return f'<h1>Your latin puppy name is {name[:-1]}iful.</h1>'
 
 if __name__ == '__main__':
     app.run()
