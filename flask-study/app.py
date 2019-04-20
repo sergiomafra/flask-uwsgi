@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 app.debug = True
@@ -31,6 +31,11 @@ def puppy_latin(name):
         return f'<h1>Your latin puppy name is {name}y.</h1>'
     else:
         return f'<h1>Your latin puppy name is {name[:-1]}iful.</h1>'
+
+## Template to static file
+@app.route('/welcome_static')
+def welcome_static():
+    return render_template('basic.html')
 
 if __name__ == '__main__':
     app.run()
